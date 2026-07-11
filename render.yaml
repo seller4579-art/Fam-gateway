@@ -1,0 +1,25 @@
+yaml
+services:
+  - type: web
+    name: fampay-autopay
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: MONGODB_URI
+        sync: false
+      - key: FAMPAY_MERCHANT_ID
+        sync: false
+      - key: FAMPAY_TXN_PASSWORD
+        sync: false
+      - key: FAMPAY_API_KEY
+        sync: false
+      - key: WEBHOOK_SECRET
+        generateValue: true
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+    autoDeploy: true
